@@ -23,6 +23,13 @@ public class CannonController : MonoBehaviour
 
     private void AimCannon()
     {
+        float newBaseRotation = Input.GetAxis("Custom Input");
+        Debug.Log(newBaseRotation);
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            Debug.Log("A Key is pressed");
+        }
     }
 
     private void TryFireCannon()
