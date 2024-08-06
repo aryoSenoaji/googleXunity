@@ -14,6 +14,7 @@ public class CannonController : MonoBehaviour
 
     public Transform barrelTransform;
     public Transform baseTransform;
+    public Transform firePointTransform;
 
     private void Update()
     {
@@ -37,6 +38,10 @@ public class CannonController : MonoBehaviour
 
     private void TryFireCannon()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(projectilePrefab, firePointTransform.position, Quaternion.identity);
+        }
     }
 
     private void Awake()
