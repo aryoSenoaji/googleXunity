@@ -10,7 +10,9 @@ public class CannonController : MonoBehaviour
     public float rotationSpeed;
 
     public float projectileFireForce;
-    public GameObject projectilePrefab;
+
+    // this will force gameobject that have cannon ball script inside of it
+    public CannonBall projectilePrefab;
 
     public Transform barrelTransform;
     public Transform baseTransform;
@@ -40,7 +42,7 @@ public class CannonController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(projectilePrefab, firePointTransform.position, Quaternion.identity);
+            CannonBall instantiatedBalls = Instantiate(projectilePrefab, firePointTransform.position, Quaternion.identity);
         }
     }
 
