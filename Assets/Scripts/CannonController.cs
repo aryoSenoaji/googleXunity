@@ -23,14 +23,16 @@ public class CannonController : MonoBehaviour
 
     private void AimCannon()
     {
-        float newBaseRotation = 
-            baseTransform.localRotation.eulerAngles.y + rotationSpeed * Input.GetAxis("Mouse X");
-
+        // aim horizontal
+        float newBaseRotation = baseTransform.localRotation.eulerAngles.y + rotationSpeed * Input.GetAxis("Mouse X");
         newBaseRotation = Mathf.Clamp(newBaseRotation, minYRotation, maxYRotation);
 
-        baseTransform.localRotation = 
-            Quaternion.Euler(0, newBaseRotation, 0);
+        baseTransform.localRotation = Quaternion.Euler(0, newBaseRotation, 0);
 
+        // aim vertical
+        float newBarrelRotation = barrelTransform.localRotation.eulerAngles.x - rotationSpeed * Input.GetAxis("Mouse Y");
+        newBarrelRotation = Mathf.Clamp(newBarrelRotation, minXRotation, maxXRotation);
+        barrelTransform.localRotation = Quaternion.Euler(newBarrelRotation, 0, 0);
     }
 
     private void TryFireCannon()
