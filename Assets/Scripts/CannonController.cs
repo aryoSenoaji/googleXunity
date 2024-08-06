@@ -43,6 +43,7 @@ public class CannonController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             CannonBall instantiatedBalls = Instantiate(projectilePrefab, firePointTransform.position, Quaternion.identity);
+            instantiatedBalls.Setup(firePointTransform.forward * projectileFireForce);
         }
     }
 

@@ -16,8 +16,9 @@ public class CannonBall : MonoBehaviour
         ballRb = GetComponent<Rigidbody>();
     }
 
-    private void Start()
+    public void Setup(Vector3 fireForce)
     {
+        ballRb.AddForce(fireForce, ForceMode.Impulse);
         ballRb.angularVelocity = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));
     }
 }
